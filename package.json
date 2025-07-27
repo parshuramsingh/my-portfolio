@@ -1,0 +1,44 @@
+{
+  "name": "my-portfolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite --host\" \"tailwindcss -i ./src/index.css -o ./dist/tailwind.css --watch\"",
+    "build": "npm run build:tailwind && vite build",
+    "build:tailwind": "tailwindcss -i ./src/index.css -o ./dist/tailwind.css --minify",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "framer-motion": "^12.23.7",
+    "keen-slider": "^6.8.6",
+    "lottie-react": "^2.4.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
+    "react-horizontal-scrolling-menu": "^8.2.0",
+    "react-icons": "^5.5.0",
+    "react-parallax-tilt": "^1.7.301",
+    "react-router-dom": "^7.7.0",
+    "react-simple-typewriter": "^5.0.1",
+    "react-swiper": "^0.1.5",
+    "react-tilt": "^1.0.2",
+    "swiper": "^11.2.10"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.1.6"
+  }
+}

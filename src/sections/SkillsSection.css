@@ -1,0 +1,73 @@
+/* Custom CSS for Swiper in SkillsSection */
+
+.swiper {
+  width: 100%;
+  padding-top: 50px; /* Adjust as needed for coverflow effect or navigation */
+  padding-bottom: 50px; /* Adjust for pagination dots */
+}
+
+.swiper-slide {
+  width: 300px; /* Default width for slides, adjusted by breakpoints in JS */
+}
+
+/* This is important for the blur effect to work correctly */
+.swiper-slide-active {
+  z-index: 100 !important; /* Ensure active slide is on top */
+}
+
+/* Style for Swiper navigation arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #6366f1; /* Indigo color for arrows */
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 1;
+}
+
+/* --- HIDE NAVIGATION ARROWS ON SMALL SCREENS --- */
+@media (max-width: 767px) { /* Applies below md breakpoint */
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important; /* Use !important to override Swiper's default display */
+  }
+}
+
+
+/* Style for Swiper pagination dots */
+.swiper-pagination-bullet {
+  background: #a78bfa; /* Light purple */
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background: #6366f1; /* Indigo */
+  opacity: 1;
+  transform: scale(1.2); /* Make active dot slightly larger */
+}
+
+/* Ensure pagination dots are visible but not too close to the cards */
+.swiper-pagination {
+    bottom: 20px !important; /* Adjust if needed to move dots further down */
+}
+
+
+/* Specific styling for the card itself, not the SwiperSlide wrapper */
+/* This ensures the shadow and scale on hover are on the card, not the entire slide */
+.mySwiper .swiper-slide > div {
+  height: 100%; /* Make sure the card takes full height of the slide */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animation for the pulsating underline */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scaleX(1); }
+  50% { opacity: 0.7; transform: scaleX(1.1); }
+}
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
