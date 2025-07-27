@@ -75,7 +75,7 @@ const LandingPage = ({ onEnterPortfolio }) => {
         </div>
 
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-shadow-lg text-gray-900 dark:text-white">
-          Hi I'm <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-600 dark:from-yellow-300 dark:via-yellow-200 dark:to-yellow-400">
+          Hi I'm <span className="text-yellow-400 dark:text-yellow-400">
             Parshuram Singh
           </span>
         </h1>
