@@ -6,7 +6,7 @@ const projectsData = [
     techStack: ['Hyperledger Fabric', 'Node.js', 'JavaScript', 'Docker', 'Fabric CLI', 'Hyperledger Caliper', 'Blockchain'],
     githubLink: "https://github.com/parshuramsingh/Blockchain_TradeFinance",
     demoLink: "#", // No live demo for this project
-    imageSrc: "./project images/tradefinance.png" // Placeholder image
+    imageSrc: "./project images/tradefinance.webp" // Placeholder image
   },
   {
     id: 'entnt-dental-center',
@@ -16,7 +16,7 @@ const projectsData = [
     githubLink: "https://github.com/parshuramsingh/entnt-dental-dashboard",
     demoLink: "https://entnt-dental-dashboard-drab.vercel.app/",
     // Updated to local image path
-    imageSrc: "./project images/entnt.png" 
+    imageSrc: "./project images/entnt.webp" 
   },
   {
     id: 'singhvolt-e-commerce',
@@ -26,7 +26,7 @@ const projectsData = [
     githubLink: "https://github.com/parshuramsingh/SinghVolt-E-commerce-App",
     demoLink: "https://singh-volt-e-commerce-app.vercel.app/",
     // Updated to local image path
-    imageSrc: "./project images/singhvolt.png"
+    imageSrc: "./project images/singhvolt.webp"
   },
   /*
  {

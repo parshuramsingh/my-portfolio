@@ -11,7 +11,7 @@ import ContactSection from './sections/ContactSection.jsx';
 import AllProjectsPage from './pages/AllProjectsPage.jsx';
 
 // Import your logo
-import logoPs from './assets/logo-ps.png'; // Adjust path if necessary
+import logoPs from './assets/logo-ps.webp'; // Adjust path if necessary
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
