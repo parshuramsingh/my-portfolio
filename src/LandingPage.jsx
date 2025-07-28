@@ -91,9 +91,10 @@ const LandingPage = ({ onEnterPortfolio }) => {
           <Lottie animationData={developerAnimation} loop autoplay />
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-shadow-lg text-gray-900 dark:text-white">
-          Hi I'm Parshuram Singh
-        </h1>
+       <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-yellow-600 transition-opacity duration-1000 opacity-100 dark:text-yellow-300">
+  Hi I'm Parshuram Singh
+</h1>
+
 
         <p className="text-lg md:text-xl mb-6 w-full max-w-2xl text-gray-700 dark:text-gray-200">
           Showcasing innovative solutions in Software Engineering, Blockchain Development, and Frontend Specialization.
