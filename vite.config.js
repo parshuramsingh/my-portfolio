@@ -1,26 +1,17 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    dedupe: ['react', 'react-dom'], // prevent duplicate versions
+    dedupe: ['react', 'react-dom'], // this is good, keep it
   },
   optimizeDeps: {
-    include: ['react', 'react-dom'], // ensure these are optimized
+    include: ['react', 'react-dom'], // this is also okay
   },
   build: {
     chunkSizeWarningLimit: 800,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (id.includes('react')) return 'react'
-            if (id.includes('lottie')) return 'lottie'
-            return 'vendor'
-          }
-        },
-      },
-    },
+    // ❌ REMOVE manualChunks — it's causing production React loading issues
   },
 })
