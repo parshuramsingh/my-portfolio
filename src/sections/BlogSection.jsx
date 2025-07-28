@@ -120,7 +120,7 @@ const BlogSection = () => {
                   <img
                     src={article.cover_image}
                     alt={article.title || 'Article Image'}
-                    className="w-full h-48 object-cover rounded-t-xl transition-transform duration-300 flex-shrink-0" // Removed group-hover:scale-105
+                    className="w-full h-50 object-cover rounded-t-xl transition-transform duration-300 flex-shrink-0" // Removed group-hover:scale-105
                     onError={(e) => {
                       e.target.onerror = null; // Prevent infinite loop if fallback also fails
                       e.target.src = fallbackImageUrl; // Fallback to a generic placeholder image
