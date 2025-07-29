@@ -103,12 +103,12 @@ const ContactSection = () => {
                     className="flex justify-center space-x-6 mb-10"
                     variants={childVariants}
                 >
-                    <a href="https://www.linkedin.com/in/parshuram-singh-your-profile-id/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"
+                    <a href="https://www.linkedin.com/in/parshuram-singh/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"
                         className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 dark:border-indigo-600 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
                     >
                         <FaLinkedin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                     </a>
-                    <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"
+                    <a href="https://github.com/parshuramsingh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"
                         className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 dark:border-indigo-600 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
                     >
                         <FaGithub className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
