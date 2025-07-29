@@ -41,10 +41,14 @@ const BlogSection = () => {
 
     const fetchArticles = async () => {
       try {
-        const response = await fetch(`https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=3`, {
-          signal: controller.signal,
-          cache: 'no-cache' // Prevent cached responses
-        });
+        const response = await fetch(
+  `https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=10&sort_by=published_at`,
+  {
+    signal: controller.signal,
+    cache: 'no-cache',
+  }
+);
+
 
         if (!response.ok) {
           throw new Error(`Failed to fetch articles: ${response.status} ${response.statusText}`);
