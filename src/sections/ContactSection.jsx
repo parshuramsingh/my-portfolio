@@ -33,21 +33,23 @@ const buttonVariants = {
 };
 
 const ContactSection = () => {
-    const [submissionStatus, setSubmissionStatus] = useState(null); // 'success', 'error', or null
+    const [submissionStatus, setSubmissionStatus] = useState(null); // 'success', 'error', 'sending', or null
+    const [isSubmitting, setIsSubmitting] = useState(false); // New state for submission in progress
 
-    const handleSubmit = async (e) => { // Made async to use await
-        e.preventDefault(); // Prevent default browser form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         setSubmissionStatus(null); // Clear previous status
+        setIsSubmitting(true); // Set submitting state to true
 
         const form = e.target;
-        const data = new FormData(form); // Get form data
+        const data = new FormData(form);
 
         try {
             const response = await fetch(form.action, {
                 method: form.method,
                 body: data,
                 headers: {
-                    'Accept': 'application/json' // Crucial for Formspree to return JSON
+                    'Accept': 'application/json'
                 }
             });
 
@@ -63,24 +65,25 @@ const ContactSection = () => {
             console.error("Form submission error:", error);
             setSubmissionStatus('error');
         } finally {
-            // --- NEW: Hide message after 5 seconds ---
-            setTimeout(() => {
-                setSubmissionStatus(null);
-            }, 5000); 
+            setIsSubmitting(false); // Always set submitting state to false when done
+            // Hide message after 5 seconds if it's not a persistent error
+            if (submissionStatus !== 'error') { // Only hide success or if no error was explicitly set (e.g., initial null)
+                setTimeout(() => {
+                    setSubmissionStatus(null);
+                }, 5000);
+            }
         }
     };
 
     return (
         <motion.section
             id="contact"
-            // Reverted background to original (non-glassmorphism) solid white/black
             className="py-16 md:py-24 bg-white dark:bg-black transition-colors duration-300 relative overflow-hidden"
             initial="hidden"
-            whileInView="visible" // Animate when in view
-            viewport={{ once: true, amount: 0.3 }} // Only animate once when 30% in view
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             variants={sectionVariants}
         >
-            {/* Content Container - Adjusted max-w for a narrower content column like the image */}
             <div className="container mx-auto px-4 text-center max-w-xl relative z-10">
                 <motion.h2
                     className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100 mb-8 leading-tight"
@@ -96,24 +99,20 @@ const ContactSection = () => {
                     solutions. Feel free to reach out using the form below or connect via my social channels!
                 </motion.p>
 
-                {/* Social Media Icons (Centered, with specific LinkedIn, GitHub, and Email icons) */}
                 <motion.div
-                    className="flex justify-center space-x-6 mb-10" // Space-x for horizontal icons, mb for margin
+                    className="flex justify-center space-x-6 mb-10"
                     variants={childVariants}
                 >
-                    {/* LinkedIn Icon */}
                     <a href="https://www.linkedin.com/in/parshuram-singh-your-profile-id/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"
                         className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 dark:border-indigo-600 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
                     >
                         <FaLinkedin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                     </a>
-                    {/* GitHub Icon */}
                     <a href="https://github.com/your-github-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"
                         className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 dark:border-indigo-600 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
                     >
                         <FaGithub className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                     </a>
-                    {/* Email Icon */}
                     <a href="mailto:parshuram7714@gmail.com" aria-label="Email Me"
                         className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 text-indigo-600 dark:border-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
                     >
@@ -121,17 +120,13 @@ const ContactSection = () => {
                     </a>
                 </motion.div>
 
-
-                {/* Contact Form */}
                 <motion.form
                     onSubmit={handleSubmit}
-                    action="https://formspree.io/f/mrblqoyg" // <-- Your Formspree endpoint (make sure this is correct!)
+                    action="https://formspree.io/f/mrblqoyg"
                     method="POST"
-                    // Reverted styling to a cleaner, simpler, minimalist look
-                    className="p-0 text-left space-y-6 md:space-y-8 mb-10" // Removed background, shadow, border, roundedness
+                    className="p-0 text-left space-y-6 md:space-y-8 mb-10"
                     variants={childVariants}
                 >
-                    {/* Name Field */}
                     <div>
                         <label htmlFor="name" className="block text-gray-800 dark:text-gray-200 text-sm font-bold uppercase mb-2">
                             Name
@@ -140,14 +135,13 @@ const ContactSection = () => {
                             type="text"
                             id="name"
                             name="name"
-                            autoComplete="name" /* Corrected: autocomplete -> autoComplete */
-                            // Input styling: transparent background, bottom border only, no roundedness, no horizontal padding
-                            className="w-full pb-2 px-0 bg-transparent text-gray-900 dark:text-gray-100 border-b-2 border-gray-400 dark:border-gray-600 focus:outline-none focus:border-indigo-600 transition-all duration-200 text-base" 
+                            autoComplete="name"
+                            className="w-full pb-2 px-0 bg-transparent text-gray-900 dark:text-gray-100 border-b-2 border-gray-400 dark:border-gray-600 focus:outline-none focus:border-indigo-600 transition-all duration-200 text-base"
                             aria-label="Your Name"
                             required
+                            disabled={isSubmitting} /* Disable input fields while submitting */
                         />
                     </div>
-                    {/* Email Field */}
                     <div>
                         <label htmlFor="email" className="block text-gray-800 dark:text-gray-200 text-sm font-bold uppercase mb-2">
                             Email Address
@@ -156,14 +150,13 @@ const ContactSection = () => {
                             type="email"
                             id="email"
                             name="email"
-                            autoComplete="email" /* Corrected: autocomplete -> autoComplete */
-                            // Input styling: transparent background, bottom border only
+                            autoComplete="email"
                             className="w-full pb-2 px-0 bg-transparent text-gray-900 dark:text-gray-100 border-b-2 border-gray-400 dark:border-gray-600 focus:outline-none focus:border-indigo-600 transition-all duration-200 text-base"
                             aria-label="Your Email"
                             required
+                            disabled={isSubmitting} /* Disable input fields while submitting */
                         />
                     </div>
-                    {/* Message Field */}
                     <div>
                         <label htmlFor="message" className="block text-gray-800 dark:text-gray-200 text-sm font-bold uppercase mb-2">
                             Message
@@ -171,46 +164,46 @@ const ContactSection = () => {
                         <textarea
                             id="message"
                             name="message"
-                            rows="4" 
-                            autoComplete="off" /* Corrected: autocomplete -> autoComplete */
-                            // Textarea styling: transparent background, bottom border only
+                            rows="4"
+                            autoComplete="off"
                             className="w-full pb-2 px-0 bg-transparent text-gray-900 dark:text-gray-100 border-b-2 border-gray-400 dark:border-gray-600 focus:outline-none focus:border-indigo-600 transition-all duration-200 resize-y text-base"
                             aria-label="Your Message"
                             required
+                            disabled={isSubmitting} /* Disable input fields while submitting */
                         ></textarea>
                     </div>
 
                     {/* Submission Status Message */}
+                    {isSubmitting && ( // Show "Sending..." when isSubmitting is true
+                        <p className="text-indigo-600 dark:text-indigo-400 text-center text-sm font-medium">
+                            Sending message...
+                        </p>
+                    )}
                     {submissionStatus === 'success' && (
-                        <p className="text-green-600 dark:text-green-400 text-center text-sm font-medium"> 
+                        <p className="text-green-600 dark:text-green-400 text-center text-sm font-medium">
                             Thank you for your message! I'll get back to you soon.
                         </p>
                     )}
                     {submissionStatus === 'error' && (
-                        <p className="text-red-600 dark:text-red-400 text-center text-sm font-medium"> 
+                        <p className="text-red-600 dark:text-red-400 text-center text-sm font-medium">
                             Oops! There was an error sending your message. Please try again.
                         </p>
                     )}
 
                     <motion.button
                         type="submit"
-                        // Submit button styling: no roundedness, no shadow
-                        className="w-full flex items-center justify-center px-6 py-3 bg-indigo-600 text-white font-bold text-lg rounded-none transition duration-300 transform hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" 
+                        className="w-full flex items-center justify-center px-6 py-3 bg-indigo-600 text-white font-bold text-lg rounded-none transition duration-300 transform hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         variants={buttonVariants}
                         whileHover="hover"
                         whileTap="tap"
+                        disabled={isSubmitting} // Disable the button while submitting
                     >
-                        Send Message
+                        {isSubmitting ? 'Sending...' : 'Send Message'} {/* Change button text based on state */}
                     </motion.button>
                 </motion.form>
             </div>
         </motion.section>
     );
 };
-
-// Prop validation (removed as scrollToSection is no longer a prop)
-// ContactSection.propTypes = {
-//     scrollToSection: PropTypes.func,
-// };
 
 export default memo(ContactSection);
