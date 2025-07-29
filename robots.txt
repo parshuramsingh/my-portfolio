@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://my-portfolio-six-hazel-82.vercel.app/sitemap.xml
