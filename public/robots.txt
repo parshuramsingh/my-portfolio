@@ -1,4 +1,5 @@
 User-agent: *
-Allow: /
+Disallow: /admin/
+Disallow: /private-data/
+Allow: /public-content/
 
-Sitemap: https://my-portfolio-six-hazel-82.vercel.app/sitemap.xml
