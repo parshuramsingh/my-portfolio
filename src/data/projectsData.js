@@ -21,7 +21,7 @@ const projectsData = [
   {
     id: 'singhvolt-e-commerce',
     title: "SinghVolt-E-commerce-App",
-    initialDescription: "A high-performance, fully responsive e-commerce frontend crafted with React and Vite — showcasing premium tech gadgets through sleek UI, dynamic interactions, and clean architecture.",
+    initialDescription: "A fully responsive, e-commerce frontend crafted with React and Vite — showcasing premium tech gadgets through sleek UI, dynamic interactions, and clean architecture.",
     techStack: ['React.js', 'Vite', 'CSS3', 'JavaScript'],
     githubLink: "https://github.com/parshuramsingh/SinghVolt-E-commerce-App",
     demoLink: "https://singh-volt-e-commerce-app.vercel.app/",
