@@ -41,8 +41,8 @@ const BlogSection = () => {
 
     const fetchArticles = async () => {
       try {
-        const response = await fetch(
-  `https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=10&sort_by=published_at`,
+const response = await fetch(
+  `https://dev.to/api/articles?username=parshuram_singh&per_page=3&sort_by=published_at&t=${Date.now()}`,
   {
     signal: controller.signal,
     cache: 'no-cache',
