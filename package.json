@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node fetch-devto-blogs.js",
     "dev": "concurrently \"vite --host\" \"tailwindcss -i ./src/index.css -o ./dist/tailwind.css --watch\"",
     "build": "npm run build:tailwind && vite build",
     "build:tailwind": "tailwindcss -i ./src/index.css -o ./dist/tailwind.css --minify",
