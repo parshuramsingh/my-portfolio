@@ -34,41 +34,29 @@ const BlogSection = () => {
       },
     },
   };
+  
+// Fetch aricles from blog.json
 
   useEffect(() => {
     let didCancel = false;
     const controller = new AbortController();
 
-    const fetchArticles = async () => {
-      try {
-const response = await fetch(
-  `https://dev.to/api/articles?username=parshuram_singh&per_page=3&sort_by=published_at&t=${Date.now()}`,
-  {
-    signal: controller.signal,
-    cache: 'no-cache',
+const fetchArticles = async () => {
+  setIsLoading(true);
+  try {
+    const response = await fetch('/blogs.json', { cache: 'no-cache' });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    setArticles(data.length ? data : staticFallbackArticles);
+  } catch (error) {
+    console.error('Error fetching blog data:', error);
+    setArticles(staticFallbackArticles); // use fallback if fetch fails
+  } finally {
+    setIsLoading(false);
   }
-);
-
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch articles: ${response.status} ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        if (didCancel) return;
-
-        const sortedArticles = data.sort((a, b) => new Date(b.published_timestamp) - new Date(a.published_timestamp));
-        setArticles(sortedArticles.length ? sortedArticles.slice(0, 3) : staticFallbackArticles);
-      } catch (err) {
-        if (!didCancel) {
-          console.error("Error fetching Dev.to articles:", err);
-          setError("Failed to load articles from Dev.to. Showing static content.");
-          setArticles(staticFallbackArticles);
-        }
-      } finally {
-        if (!didCancel) setIsLoading(false);
-      }
-    };
+};
 
     fetchArticles();
 
