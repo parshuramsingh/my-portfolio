@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "title": "From Vanilla CSS to Tailwind CSS: Why I Made the Switch (and You Should Too)",
-    "description": "\"Good design is as little design as possible.\" — Dieter Rams   When I started building websites, CSS...",
-    "url": "https://dev.to/parshuram_singh/css-5ef9",
-    "cover_image": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F3a3qsp9bnef6vq928tej.png",
-    "published_at": "2025-07-31T06:17:15Z",
+    "title": "How I Integrated Dev.to Blogs into My Portfolio: From Client-Side CORS to Full GitHub Automation",
+    "description": "A real-world journey showing how I evolved my blog integration from basic fetch to a fully automated GitHub + Vercel workflow — tackling SEO, caching, and CORS issues on the way.",
+    "url": "https://dev.to/parshuram_singh/how-i-integrated-devto-blogs-into-my-portfolio-from-client-side-cors-to-full-github-automation-2j4f",
+    "cover_image": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fk2cei2vcogpk7uni7v0y.png",
+    "published_at": "2025-07-31T09:33:08Z",
     "public_reactions_count": 0
   },
   {
