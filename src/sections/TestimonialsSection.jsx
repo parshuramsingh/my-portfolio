@@ -6,17 +6,17 @@ const TestimonialsSection = () => {
     {
       quote: "Parshuram demonstrated exceptional skill in React.js during his internship. His contributions to responsive UI development were invaluable, and he consistently delivered clean, maintainable code.",
       author: "Senior Developer at Suven Consultants",
-      image: "https://placehold.co/80x80/6366F1/FFFFFF?text=RS"
+      image: "https://picsum.photos/80/80?random=1"
     },
     {
       quote: "His understanding of Hyperledger Fabric and ability to design robust smart contracts for complex use cases like trade finance is impressive. A strong asset for any DLT team.",
       author: "Blockchain Lead",
-      image: "https://placehold.co/80x80/A855F7/FFFFFF?text=TP"
+      image: "https://picsum.photos/80/80?random=2"
     },
     {
       quote: "Parshuram seamlessly bridges frontend elegance with backend resilience. His full-stack capabilities make him a versatile and highly effective engineer.",
       author: "Project Manager",
-      image: "https://placehold.co/80x80/EC4899/FFFFFF?text=SM"
+      image: "https://picsum.photos/80/80?random=3"
     },
   ];
 
