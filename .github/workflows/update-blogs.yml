@@ -2,8 +2,8 @@ name: Fetch Dev.to Blogs
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight (UTC)
-  workflow_dispatch: # Allows manual trigger from GitHub
+    - cron: '0 4 * * *'  # runs daily at 9:30 AM IST
+  workflow_dispatch:
 
 jobs:
   update-blogs:
@@ -18,16 +18,19 @@ jobs:
         with:
           node-version: '18'
 
-      - name: 📦 Install Dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🔄 Run Blog Fetch Script
+      - name: 🔄 Run blog fetch script
         run: node fetch-devto-blogs.js
 
       - name: 📝 Commit and Push blogs.json
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
           git add public/blogs.json
-          git commit -m "📝 Update blogs.json from Dev.to"
+          git commit -m "📝 Auto-update blogs.json from Dev.to" || echo "No changes to commit"
           git push
+        env:
+          # Set GitHub token to allow push
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
