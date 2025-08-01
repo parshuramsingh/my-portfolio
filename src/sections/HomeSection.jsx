@@ -60,7 +60,7 @@ const HomeSection = ({ scrollToSection }) => (
         className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight drop-shadow-md"
         variants={childVariants}
       >
-        Hi, I'm <span className="text-indigo-700 dark:text-indigo-400">Parshuram Singh</span>
+       <span className="text-indigo-700 dark:text-indigo-400">Parshuram Singh</span>
       </motion.h1>
 
       {/* Subtitle */}
