@@ -2,8 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import adminImage from '../assets/admin.jpg';
 
-
-
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -35,7 +33,7 @@ const paragraphs = [
 const HomeSection = ({ scrollToSection }) => (
   <motion.section
     id="home"
-    className="relative py-20 md:py-28 bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-gray-900 dark:to-black transition-colors duration-500 overflow-hidden"
+    className="relative py-20 md:py-28 bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-gray-900 dark:to-black transition-colors duration-500 overflow-hidden"
     initial="hidden"
     animate="visible"
     variants={containerVariants}
@@ -50,25 +48,24 @@ const HomeSection = ({ scrollToSection }) => (
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         <img
-  src={adminImage}
-  alt="Parshuram Singh"
-  className="w-full h-full object-cover"
-/>
-
+          src={adminImage}
+          alt="Parshuram Singh"
+          className="w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
       </motion.div>
 
       {/* Name Heading */}
-  <motion.h1
-      className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-100 mb-4 leading-tight drop-shadow-md"
-     variants={childVariants}
-   >
-       Hi, I'm <span className="text-indigo-600 dark:text-indigo-400">Parshuram Singh</span>
-       </motion.h1>
+      <motion.h1
+        className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight drop-shadow-md"
+        variants={childVariants}
+      >
+        Hi, I'm <span className="text-indigo-700 dark:text-indigo-400">Parshuram Singh</span>
+      </motion.h1>
 
       {/* Subtitle */}
       <motion.p
-        className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-300 mb-8"
+        className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8"
         variants={childVariants}
       >
         <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
@@ -81,7 +78,9 @@ const HomeSection = ({ scrollToSection }) => (
         {paragraphs.map((text, i) => (
           <motion.p
             key={i}
-            className="text-md md:text-lg text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/30 dark:bg-white/10 p-4 rounded-xl border border-white/30 dark:border-white/10 shadow-inner max-w-3xl mx-auto text-justify leading-relaxed"
+            // Increased text color to text-gray-800 in light mode for better contrast.
+            // Increased text color to dark:text-gray-200 in dark mode for better contrast.
+            className="text-md md:text-lg text-gray-800 dark:text-gray-200 backdrop-blur-sm bg-white/30 dark:bg-white/10 p-4 rounded-xl border border-white/30 dark:border-white/10 shadow-inner max-w-3xl mx-auto text-justify leading-relaxed"
             variants={childVariants}
           >
             {text}
@@ -96,20 +95,20 @@ const HomeSection = ({ scrollToSection }) => (
           className="px-8 py-3 text-lg font-bold rounded-full bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-xl hover:shadow-indigo-400/70 transition duration-300 hover:scale-105"
           whileTap={{ scale: 0.95 }}
         >
-           View My Work
+          View My Work
         </motion.button>
 
         <motion.button
           onClick={() => scrollToSection('contact')}
-          className="px-8 py-3 text-lg font-bold rounded-full border-2 border-indigo-600 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-900 shadow-md hover:shadow-indigo-300 transition duration-300 hover:scale-105"
+
+          className="px-8 py-3 text-lg font-bold rounded-full border-2 border-indigo-600 text-indigo-800 dark:text-indigo-200 hover:bg-indigo-50 dark:hover:bg-indigo-900 shadow-md hover:shadow-indigo-300 transition duration-300 hover:scale-105"
           whileTap={{ scale: 0.95 }}
         >
-           Hire Me
+          Hire Me
         </motion.button>
       </motion.div>
     </div>
   </motion.section>
 );
-
 
 export default HomeSection;
