@@ -196,9 +196,9 @@ const ContactSection = () => {
                         variants={buttonVariants}
                         whileHover="hover"
                         whileTap="tap"
-                        disabled={isSubmitting} // Disable the button while submitting
+                        disabled={isSubmitting} 
                     >
-                        {isSubmitting ? 'Sending...' : 'Send Message'} {/* Change button text based on state */}
+                        {isSubmitting ? 'Sending...' : 'Send Message'} 
                     </motion.button>
                 </motion.form>
             </div>

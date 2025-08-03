@@ -1,14 +1,11 @@
-// src/pages/AllProjectsPage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ProjectCard from '../components/ProjectCard.jsx';
-import projectsData from '../data/projectsData.js'; // Import centralized project data
+import projectsData from '../data/projectsData.js';
 
 const AllProjectsPage = () => {
   const navigate = useNavigate();
-
-  // Slice to display projects from the 4th one onwards (index 3 and beyond)
-  // This avoids duplicating the first 3 projects shown on the main portfolio page.
+  
   const projectsBeyondFirstThree = projectsData.slice(3); 
 
   return (

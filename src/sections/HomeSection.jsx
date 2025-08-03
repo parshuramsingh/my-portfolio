@@ -78,8 +78,6 @@ const HomeSection = ({ scrollToSection }) => (
         {paragraphs.map((text, i) => (
           <motion.p
             key={i}
-            // Increased text color to text-gray-800 in light mode for better contrast.
-            // Increased text color to dark:text-gray-200 in dark mode for better contrast.
             className="text-md md:text-lg text-gray-800 dark:text-gray-200 backdrop-blur-sm bg-white/30 dark:bg-white/10 p-4 rounded-xl border border-white/30 dark:border-white/10 shadow-inner max-w-3xl mx-auto text-justify leading-relaxed"
             variants={childVariants}
           >

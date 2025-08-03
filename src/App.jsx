@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'; // Import routing hooks
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'; 
 import LandingPage from './LandingPage.jsx';
 import NavLink from './components/NavLink.jsx';
 import HomeSection from './sections/HomeSection.jsx';
@@ -10,22 +10,22 @@ import TestimonialsSection from './sections/TestimonialsSection.jsx';
 import ContactSection from './sections/ContactSection.jsx';
 import AllProjectsPage from './pages/AllProjectsPage.jsx';
 
-// Import your logo
-import logoPs from './assets/logo-ps.webp'; // Adjust path if necessary
+
+import logoPs from './assets/logo-ps.webp'; 
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Dark mode state, initialized from localStorage. Defaults to false (light) if no preference is saved.
+
   const [darkMode, setDarkMode] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
     return savedTheme ? savedTheme === 'dark' : false;
   });
 
-  const navigate = useNavigate(); // Hook for programmatic navigation
-  const location = useLocation(); // Hook to get current URL location
+  const navigate = useNavigate(); 
 
-  // Effect to apply dark mode class to HTML element and save preference
+  const location = useLocation(); 
+  
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');
@@ -49,12 +49,12 @@ function App() {
     }
   };
 
-  // Effect to update active section based on scroll position (only for portfolio view)
+ 
   useEffect(() => {
-    // Only run scroll listener if we are on the portfolio path
+    
     if (location.pathname === '/portfolio') {
       const handleScroll = () => {
-        const sections = ['home', 'skills', 'projects', 'testimonials', 'blog', 'contact']; // Reordered for nav highlighting
+        const sections = ['home', 'skills', 'projects', 'testimonials', 'blog', 'contact']; 
         let currentActive = 'home';
         for (const sectionId of sections) {
           const section = document.getElementById(sectionId);
@@ -105,7 +105,7 @@ function App() {
             {/* Navigation Bar - Enhanced Styling */}
             <nav className="fixed top-0 left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-2xl border-b-2 border-gray-200 dark:border-gray-700 z-50 py-4 transition-colors duration-300">
               <div className="container mx-auto flex justify-between items-center px-4">
-                {/* Logo only - Now clickable to refresh page and scroll to home */}
+            
                 <a
                   href="/" // Link to the root
                   onClick={(e) => {

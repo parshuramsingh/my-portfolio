@@ -73,7 +73,7 @@ const SkillsSection = () => {
 
   return (
     <section id="skills" 
-      // Changed section background to match the minimalist white/black theme of other sections
+   
       className="py-16 md:py-24 bg-white dark:bg-black transition-colors duration-500 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-100 mb-12 text-center relative z-10">

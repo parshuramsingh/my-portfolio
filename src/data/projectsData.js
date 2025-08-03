@@ -15,7 +15,6 @@ const projectsData = [
     techStack: ['React.js', 'HTML5', 'REST APIs', 'Tailwind CSS', 'JavaScript'],
     githubLink: "https://github.com/parshuramsingh/entnt-dental-dashboard",
     demoLink: "https://entnt-dental-dashboard-drab.vercel.app/",
-    // Updated to local image path
     imageSrc: "./project images/entnt.webp" 
   },
   {
@@ -25,7 +24,6 @@ const projectsData = [
     techStack: ['React.js', 'Vite', 'CSS3', 'JavaScript'],
     githubLink: "https://github.com/parshuramsingh/SinghVolt-E-commerce-App",
     demoLink: "https://singh-volt-e-commerce-app.vercel.app/",
-    // Updated to local image path
     imageSrc: "./project images/singhvolt.webp"
   },
   /*

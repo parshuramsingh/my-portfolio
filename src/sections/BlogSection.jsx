@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // Import motion for animations
+import { motion } from 'framer-motion'; 
 
 const BlogSection = () => {
   const DEVTO_USERNAME = 'parshuram_singh';

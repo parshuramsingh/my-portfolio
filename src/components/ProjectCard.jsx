@@ -5,7 +5,7 @@ import { FaGithub, FaLink } from 'react-icons/fa'; // Only import icons used in 
 import { SiMongodb, SiTailwindcss, SiJavascript, SiHtml5, SiCss3, SiNextdotjs } from 'react-icons/si'; // Import specific Si icons
 import { FaReact, FaNodeJs } from 'react-icons/fa'; // Import specific Fa icons that might be needed
 
-// Map for tech icons (ensure only used icons are imported above)
+
 const iconMap = {
   React: <FaReact className="text-blue-500" />,
   'React.js': <FaReact className="text-blue-500" />,
@@ -18,7 +18,7 @@ const iconMap = {
   HTML: <SiHtml5 className="text-orange-500" />,
   CSS: <SiCss3 className="text-blue-600" />,
   Next: <SiNextdotjs className="text-black dark:text-white" />,
-  // Add other specific icons here if needed, or use a generic one
+ 
   
   'Fabric CLI': <FaLink className="text-purple-500" />, // Using FaLink as a generic
   'Hyperledger Caliper': <FaLink className="text-purple-400" />, // Using FaLink as a generic
@@ -40,12 +40,11 @@ const iconMap = {
 };
 
 
-const DESCRIPTION_MAX_LENGTH = 150; // Max characters before truncating
+const DESCRIPTION_MAX_LENGTH = 150; 
 
 const ProjectCard = ({ title, initialDescription, techStack, githubLink, demoLink, imageSrc }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
-  // Determine if description needs truncation
   const needsTruncation = initialDescription.length > DESCRIPTION_MAX_LENGTH;
   const displayedDescription = showFullDescription 
     ? initialDescription 
@@ -60,7 +59,7 @@ const ProjectCard = ({ title, initialDescription, techStack, githubLink, demoLin
           flex flex-col h-full transition-all duration-300 hover:shadow-2xl
           hover:border-indigo-400 dark:hover:border-indigo-500
         "
-        whileHover={{ y: -5 }} // Subtle lift on hover
+        whileHover={{ y: -5 }} 
       >
         <img
           src={imageSrc}
@@ -76,7 +75,7 @@ const ProjectCard = ({ title, initialDescription, techStack, githubLink, demoLin
         {needsTruncation && (
           <button
             onClick={() => setShowFullDescription(!showFullDescription)}
-            className="text-indigo-600 dark:text-indigo-400 text-sm font-semibold hover:underline mt-2 text-left w-max focus:outline-none" // mt-2 for spacing from description
+            className="text-indigo-600 dark:text-indigo-400 text-sm font-semibold hover:underline mt-2 text-left w-max focus:outline-none" 
           >
             {showFullDescription ? 'Show less' : 'Read more'}
           </button>
@@ -98,7 +97,7 @@ const ProjectCard = ({ title, initialDescription, techStack, githubLink, demoLin
               GitHub
             </motion.a>
           )}
-          {demoLink && demoLink !== '#' && ( // Only show if link is valid
+          {demoLink && demoLink !== '#' && ( // link 
             <motion.a
               href={demoLink}
               target="_blank"

@@ -1,5 +1,3 @@
-/* Custom CSS for Swiper in SkillsSection */
-
 .swiper {
   width: 100%;
   padding-top: 50px; /* Adjust as needed for coverflow effect or navigation */
@@ -46,19 +44,15 @@
 .swiper-pagination-bullet-active {
   background: #6366f1; /* Indigo */
   opacity: 1;
-  transform: scale(1.2); /* Make active dot slightly larger */
+  transform: scale(1.2);
 }
 
-/* Ensure pagination dots are visible but not too close to the cards */
 .swiper-pagination {
-    bottom: 20px !important; /* Adjust if needed to move dots further down */
+    bottom: 20px !important; 
 }
 
-
-/* Specific styling for the card itself, not the SwiperSlide wrapper */
-/* This ensures the shadow and scale on hover are on the card, not the entire slide */
 .mySwiper .swiper-slide > div {
-  height: 100%; /* Make sure the card takes full height of the slide */
+  height: 100%; 
   display: flex;
   flex-direction: column;
 }

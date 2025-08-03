@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AllBlogsPage = () => {
-  const DEVTO_USERNAME = 'parshuram_singh'; // Your Dev.to username
+  const DEVTO_USERNAME = 'parshuram_singh'; 
   const navigate = useNavigate();
 
   const staticFallbackArticles = [
@@ -15,7 +15,7 @@ const AllBlogsPage = () => {
       published_at: "2024-07-26T12:00:00Z", 
       public_reactions_count: 5 
     }
-    // Add more static articles here manually if needed for full display fallback
+    //  more static articles here manually if needed for full display fallback
   ];
 
   const [articles, setArticles] = useState([]);

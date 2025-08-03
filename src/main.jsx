@@ -1,15 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
+import { BrowserRouter } from 'react-router-dom'; 
 import App from './App.jsx';
-import '../dist/tailwind.css'; // Import your compiled Tailwind CSS file
+import '../dist/tailwind.css'; 
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter> {/* Wrap App with BrowserRouter */}
+    <BrowserRouter> 
       <App />
     </BrowserRouter>
   </React.StrictMode>
