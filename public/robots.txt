@@ -3,3 +3,4 @@ Disallow: /admin/
 Disallow: /private-data/
 Allow: /public-content/
 
+Sitemap: https://my-portfolio-eta-nine-d8gvqtsq67.vercel.app/sitemap.xml
