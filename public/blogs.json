@@ -1,6 +1,15 @@
 [
   {
     "id": 1,
+    "title": "🤖 How AI Is Changing Frontend Development (and Why It Won’t Replace You)",
+    "description": "AI is transforming the way frontend developers work—but it’s not coming for your job. Here’s what you need to know (and how to use it to your advantage).",
+    "url": "https://dev.to/parshuram_singh/how-ai-is-changing-frontend-development-and-why-it-wont-replace-you-1bi5",
+    "cover_image": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fquufdl4fb97xeb5flc3z.png",
+    "published_at": "2025-08-03T09:36:06Z",
+    "public_reactions_count": 0
+  },
+  {
+    "id": 2,
     "title": "How I Integrated Dev.to Blogs into My Portfolio: From Client-Side CORS to Full GitHub Automation",
     "description": "A real-world journey showing how I evolved my blog integration from basic fetch to a fully automated GitHub + Vercel workflow — tackling SEO, caching, and CORS issues on the way.",
     "url": "https://dev.to/parshuram_singh/how-i-integrated-devto-blogs-into-my-portfolio-from-client-side-cors-to-full-github-automation-2j4f",
@@ -9,7 +18,7 @@
     "public_reactions_count": 0
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "How I Built a Trade Finance App on Hyperledger Fabric – A Complete Blockchain Project Walkthrough",
     "description": "Hey Dev.to community!  I’m Parshuram Singh, a Frontend and Blockchain Developer, and I’m excited to...",
     "url": "https://dev.to/parshuram_singh/how-i-built-a-trade-finance-app-on-hyperledger-fabric-a-complete-blockchain-project-walkthrough-amb",
