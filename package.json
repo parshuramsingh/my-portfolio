@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "framer-motion": "^12.23.7",
     "keen-slider": "^6.8.6",
     "lottie-react": "^2.4.1",
@@ -28,7 +30,8 @@
     "react-swiper": "^0.1.5",
     "react-tilt": "^1.0.2",
     "react-toastify": "^11.0.5",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
