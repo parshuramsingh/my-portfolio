@@ -2,14 +2,27 @@ import { writeFile } from 'fs/promises';
 import fetch from 'node-fetch';
 
 const DEVTO_USERNAME = 'parshuram_singh';
-const DEVTO_API_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}`;
+const BASE_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=100`;
 
 async function fetchDevtoBlogs() {
   try {
-    const response = await fetch(DEVTO_API_URL);
-    const articles = await response.json();
+    let page = 1;
+    let allArticles = [];
+    let hasMore = true;
 
-    const formattedBlogs = articles.map((article, index) => ({
+    while (hasMore) {
+      const response = await fetch(`${BASE_URL}&page=${page}`);
+      const articles = await response.json();
+
+      if (articles.length === 0) {
+        hasMore = false;
+      } else {
+        allArticles = [...allArticles, ...articles];
+        page++;
+      }
+    }
+
+    const formattedBlogs = allArticles.map((article, index) => ({
       id: index + 1,
       title: article.title,
       description: article.description,
