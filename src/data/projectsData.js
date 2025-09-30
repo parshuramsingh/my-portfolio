@@ -6,7 +6,7 @@ const projectsData = [
     techStack: ['Hyperledger Fabric', 'Node.js', 'JavaScript', 'Docker', 'Fabric CLI', 'Hyperledger Caliper', 'Blockchain'],
     githubLink: "https://github.com/parshuramsingh/Blockchain_TradeFinance",
     demoLink: "#", // No live demo for this project
-    imageSrc: "./project images/tradefinance.webp" // Placeholder image
+    imageSrc: "./project images/tradefinance.webp"
   },
   {
     id: 'entnt-dental-center',
@@ -15,7 +15,7 @@ const projectsData = [
     techStack: ['React.js', 'HTML5', 'REST APIs', 'Tailwind CSS', 'JavaScript'],
     githubLink: "https://github.com/parshuramsingh/entnt-dental-dashboard",
     demoLink: "https://entnt-dental-dashboard-drab.vercel.app/",
-    imageSrc: "./project images/entnt.webp" 
+    imageSrc: "./project images/entnt.webp"
   },
   {
     id: 'singhvolt-e-commerce',
@@ -26,36 +26,26 @@ const projectsData = [
     demoLink: "https://singh-volt-e-commerce-app.vercel.app/",
     imageSrc: "./project images/singhvolt.webp"
   },
+  {
+    id: 'music-player',
+    title: "Music Player Web App",
+    initialDescription: "A responsive and interactive web-based music player that lets users stream, upload, and control audio playback with ease. Features include playlist management, shuffle/repeat, volume control, progress bar, and file upload support. Designed with a clean and mobile-friendly UI.",
+    techStack: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'Boxicons', 'Google Fonts'],
+    githubLink: "https://github.com/parshuramsingh/Music_app",
+    demoLink: "https://music-app-phi-plum.vercel.app/",  // Replace if you have updated link
+    imageSrc: "./project images/musicapp.webp"
+  },
   /*
- {
-    id: 'project-4',
-    title: "Web-based Music Player",
-    initialDescription: "Developed a responsive web-based music player application with features like playlist management, audio playback controls, and a user-friendly interface. Utilized modern web technologies for a smooth listening experience.",
-    techStack: ['HTML5', 'CSS3', 'JavaScript', 'Web Audio API'],
-    githubLink: "https://github.com/your-username/music-player",
-    demoLink: "https://your-demo-link.com/music-player",
-    imageSrc: "https://placehold.co/400x250/06B6D4/FFFFFF?text=Music+Player"
-  },
   {
-    id: 'project-5',
-    title: "Interactive Data Visualization",
-    initialDescription: "Created dynamic data visualizations for a public dataset using D3.js, allowing users to filter, sort, and interact with the data to uncover insights. Focused on performance and clear presentation.",
-    techStack: ['D3.js', 'JavaScript', 'HTML5', 'CSS3'],
-    githubLink: "https://github.com/your-username/data-viz",
-    demoLink: "https://your-demo-link.com/data-viz",
-    imageSrc: "https://placehold.co/400x250/EC4899/FFFFFF?text=Data+Viz"
-  },
-  {
-    id: 'project-6',
-    title: "Simple Chat Application",
-    initialDescription: "Built a real-time chat application using WebSockets and Node.js with Express. Features include user authentication, private messaging, and group chats. Demonstrates fundamental backend and real-time communication skills.",
-    techStack: ['Node.js', 'Express.js', 'WebSockets', 'Socket.IO', 'MongoDB'],
-    githubLink: "https://github.com/your-username/chat-app",
-    demoLink: "https://your-demo-link.com/chat-app",
-    imageSrc: "https://placehold.co/400x250/8B5CF6/FFFFFF?text=Chat+App"
+    id: 'project-placeholder',
+    title: "Project Title",
+    initialDescription: "Short description of the project goes here. Explain the purpose, key features, and impact of the project.",
+    techStack: ['Tech1', 'Tech2', 'Tech3'],
+    githubLink: "https://github.com/your-username/project-repo",
+    demoLink: "https://your-demo-link.com",
+    imageSrc: "./project images/placeholder.webp"
   }
-    */
-    
+  */
 ];
 
 export default projectsData;
