@@ -7,7 +7,7 @@ const ProjectsSection = () => {
   const navigate = useNavigate(); // Initialize navigate hook
 
   // Display only the first 3 projects on the main page as a preview
-  const projectsToShowPreview = projectsData.slice(0, 3); 
+  const projectsToShowPreview = projectsData.slice(0, 5); 
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
@@ -38,7 +38,7 @@ const ProjectsSection = () => {
         )}
 
         {/* View All Projects Button - Only show if there are more than 3 projects in total */}
-        {projectsData.length > 3 && ( 
+        {projectsData.length > 5 && ( 
           <div className="mt-12 text-center">
             <button
               onClick={() => navigate('/all-projects')} // Navigate to the new projects page
