@@ -14,8 +14,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/blogs.json", "destination": "/blogs.json" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
