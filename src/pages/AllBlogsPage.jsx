@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const AllBlogsPage = () => {
-  const DEVTO_USERNAME = 'parshuram_singh';
+  const DEVTO_USERNAME = 'parshuramsingh';
   const fallbackImageUrl = 'https://placehold.co/800x420?text=No+Image+Available';
 
   const staticFallbackArticles = [
@@ -11,7 +11,7 @@ const AllBlogsPage = () => {
       title: "How I Built a Trade Finance App on Hyperledger Fabric",
       slug: "how-i-built-a-trade-finance-app-on-hyperledger-fabric",
       description: "Dive into a detailed walkthrough of building a full-stack trade finance application using Hyperledger Fabric...",
-      url: "https://dev.to/parshuram_singh/how-i-built-a-trade-finance-app-on-hyperledger-fabric-a-complete-blockchain-project-walkthrough-amb",
+      url: "https://dev.to/parshuramsingh/how-i-built-a-trade-finance-app-on-hyperledger-fabric-a-complete-blockchain-project-walkthrough-amb",
       cover_image: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh9lwecoq95penbjd0k5r.png",
       published_at: "2024-07-26T12:00:00Z",
       public_reactions_count: 5

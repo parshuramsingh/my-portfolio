@@ -1,7 +1,7 @@
 import { writeFile } from 'fs/promises';
 import fetch from 'node-fetch';
 
-const DEVTO_USERNAME = 'parshuram_singh';
+const DEVTO_USERNAME = 'parshuramsingh';
 const BASE_URL = `https://dev.to/api/articles?username=${DEVTO_USERNAME}&per_page=100`;
 
 async function fetchDevtoBlogs() {
