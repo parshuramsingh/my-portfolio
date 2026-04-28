@@ -53,6 +53,6 @@ const ProjectsSection = () => {
       </div>
     </section>
   );
-};
+};  
 
 export default ProjectsSection;

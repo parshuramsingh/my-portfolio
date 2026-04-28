@@ -34,13 +34,45 @@ import { VscVscode } from 'react-icons/vsc';
 
 
 const SkillsSection = () => {
-  const skills = {
-    'Frontend Development': ['React.js', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Tailwind CSS',],
-    'Blockchain Development': ['Hyperledger Fabric', 'Smart Contracts (Chaincode)', 'Solidity (Basic)', 'dApps', 'Etherium(Basic)', 'Decentralized Systems'],
-    'Backend Development': ['Node.js', 'Express.js', 'REST APIs', 'MongoDB', 'MySQL', 'Java', 'C'],
-    'Tools & Platforms': ['Git', 'GitHub', 'Docker', 'VS Code', 'Postman', 'Hyperledger Caliper'],
-    'CS Fundamentals': ['Data Structures', 'Algorithms', 'Object-Oriented Programming (OOPs)', 'Operating Systems ','Computer Netowrks']
-  };
+const skills = {
+  'Blockchain Development': [
+    'Hyperledger Fabric',
+    'Smart Contracts (Chaincode)',
+    'dApps',
+    'Decentralized Systems',
+    'Solidity (Basic)'
+  ],
+  'Backend Development': [
+    'Golang',
+    'Node.js',
+    'Express.js',
+    'REST APIs',
+    'MongoDB',
+    'MySQL'
+  ],
+  'CS Fundamentals': [
+    'Data Structures',
+    'Algorithms',
+    'Object-Oriented Programming (OOPs)',
+    'Operating Systems',
+    'Computer Networks'
+  ],
+  'Tools & Platforms': [
+    'Git',
+    'GitHub',
+    'Docker',
+    'Postman',
+    'Hyperledger Caliper',
+    'VS Code'
+  ],
+  'Frontend Development': [
+    'React.js',
+    'JavaScript (ES6+)',
+    'HTML5',
+    'CSS3',
+    'Tailwind CSS'
+  ]
+};
 
   const categoryIcons = {
     // Changed all category icons to use portfolio's main accent colors

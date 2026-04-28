@@ -38,30 +38,33 @@ const LandingPage = ({ onEnterPortfolio }) => {
     return () => clearInterval(interval);
   }, [quoteCount]);
 
-  const resumeLink = "#"; // Replace with actual URL when available
-// handle down
+  const resumeLink = "#";
 
- const handleDownloadResume = (e) => {
-  if (!resumeLink || resumeLink === "#") {
-    e.preventDefault();
-    const isDarkMode = document.documentElement.classList.contains('dark');
-    const toastId = 'resume-toast';
+  const handleDownloadResume = (e) => {
+    if (!resumeLink || resumeLink === "#") {
+      e.preventDefault();
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      const toastId = 'resume-toast';
 
-    if (!toast.isActive(toastId)) {
-      toast.info("Resume will be available shortly!", {
-        toastId, // prevent duplicate
-        position: "top-center",
-        autoClose: 3000,
-        theme: isDarkMode ? "dark" : "light",
-      });
+      if (!toast.isActive(toastId)) {
+        toast.info("Resume will be available shortly!", {
+          toastId,
+          position: "top-center",
+          autoClose: 3000,
+          theme: isDarkMode ? "dark" : "light",
+        });
+      }
     }
-  }
-};
-
+  };
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-gray-800 p-4 text-center overflow-hidden text-base dark:from-blue-950 dark:via-indigo-950 dark:to-purple-950 dark:text-white transition-colors duration-500">
       
+      {/* Hidden SEO Link */}
+      <a href="/portfolio" style={{ display: "none" }}>
+        Parshuram Singh Blockchain Developer Portfolio
+      </a>
+
       {/* Decorative Background Shapes */}
       <div className="absolute inset-0 z-0 opacity-50 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
@@ -91,13 +94,19 @@ const LandingPage = ({ onEnterPortfolio }) => {
           <Lottie animationData={developerAnimation} loop autoplay />
         </div>
 
-       <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-yellow-600 transition-opacity duration-1000 opacity-100 dark:text-yellow-300">
-  Hi, I'm Parshuram Singh
-</h1>
+        {/* H1 */}
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-yellow-600 transition-opacity duration-1000 opacity-100 dark:text-yellow-300">
+          Parshuram Singh
+        </h1>
 
+        {/* H2 */}
+        <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-700 dark:text-gray-200">
+          Blockchain Developer & Backend Engineer
+        </h2>
 
+        {/* Description */}
         <p className="text-lg md:text-xl mb-6 w-full max-w-2xl text-gray-700 dark:text-gray-200">
-          Showcasing innovative solutions in Software Engineering, Blockchain Development, and Frontend Specialization.
+          Specializing in Hyperledger Fabric, Golang, and backend systems. Building scalable blockchain solutions like TradeChain.
         </p>
 
         {/* Quote Animation */}
@@ -112,7 +121,7 @@ const LandingPage = ({ onEnterPortfolio }) => {
 
         {/* Skill Pills */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {['React', 'Blockchain', 'Java', 'Node.js', 'MySQL'].map(skill => (
+          {['Hyperledger Fabric', 'Blockchain', 'Golang', 'Node.js', 'Distributed Systems'].map(skill => (
             <span
               key={skill}
               className="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm md:text-base font-semibold hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300 transform hover:scale-110 dark:bg-indigo-700 dark:hover:bg-yellow-500 dark:hover:text-gray-900"
@@ -164,8 +173,7 @@ const LandingPage = ({ onEnterPortfolio }) => {
         </div>
       </div>
 
-      {/* Toast Container */}
-      <ToastContainer />
+      <ToastContainer transition={Slide} />
     </div>
   );
 };
