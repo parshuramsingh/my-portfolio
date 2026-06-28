@@ -74,7 +74,7 @@ const HomeSection = ({ scrollToSection }) => (
         className="text-sm text-gray-500 dark:text-gray-400 mb-4"
         variants={childVariants}
       >
-        Blockchain Developer at PowerXchange
+        Blockchain Developer
       </motion.p>
 
       {/* Subtitle (Positioning) */}
