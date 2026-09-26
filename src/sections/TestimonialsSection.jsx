@@ -23,16 +23,16 @@ const testimonials = [
   return (
     <section 
       id="testimonials" 
-      className="py-16 md:py-24 bg-white dark:bg-gray-900 transition-colors duration-300"
+      className="scroll-mt-28 px-5 py-16 md:py-24"
       itemScope
       itemType="https://schema.org/Review"
     >
-      <div className="container mx-auto px-4">
+      <div className="mx-auto max-w-6xl">
 
-        {/* ✅ SEO Optimized Heading */}
-        <h2 className="text-4xl md:text-4xl font-extrabold text-center text-gray-900 dark:text-gray-100 mb-12">
-          What <span className="text-indigo-600 dark:text-indigo-400">People Say</span>
-        </h2>
+        <div className="mb-10 text-center">
+          <p className="section-kicker">Recommendations</p>
+          <h2 className="display-title">What People Say</h2>
+        </div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

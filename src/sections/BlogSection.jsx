@@ -54,13 +54,13 @@ const BlogSection = () => {
   }, []);
 
   return (
-    <section id="blog" className="py-16 md:py-24 bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
-      <div className="container mx-auto px-4">
+    <section id="blog" className="scroll-mt-28 px-5 py-16 md:py-24">
+      <div className="mx-auto max-w-6xl">
 
-        {/* ✅ SEO Optimized Heading */}
-        <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-gray-100 mb-12">
-          Blockchain & Backend <span className="text-indigo-600 dark:text-indigo-400">Blog Posts</span>
-        </h2>
+        <div className="mb-10 text-center">
+          <p className="section-kicker">Writing</p>
+          <h2 className="display-title">Blockchain & Backend Blog</h2>
+        </div>
 
         {/* Loading */}
         {isLoading && (
@@ -85,7 +85,7 @@ const BlogSection = () => {
             {articles.map((article) => (
               <motion.div
                 key={article.id}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden flex flex-col"
+                className="surface-card flex flex-col overflow-hidden"
                 variants={cardVariants}
                 whileHover={{ y: -5 }}
               >
@@ -93,20 +93,20 @@ const BlogSection = () => {
                 <img
                   src={article.cover_image || fallbackImageUrl}
                   alt={`Blog: ${article.title}`}
-                  className="w-full h-52 object-cover"
+                  className="h-52 w-full object-cover"
                   onError={(e) => (e.target.src = fallbackImageUrl)}
                 />
 
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                  <h3 className="mb-2 font-serif text-2xl leading-snug text-ink dark:text-paper">
                     {article.title}
                   </h3>
 
-                  <p className="text-sm text-gray-600 dark:text-gray-300 flex-grow">
+                  <p className="flex-grow text-sm leading-relaxed text-ink/70 dark:text-paper/70">
                     {article.description?.slice(0, 120) || 'No description available.'}...
                   </p>
 
-                  <div className="flex justify-between text-sm mt-3 text-gray-500">
+                  <div className="mt-4 flex justify-between text-xs uppercase tracking-wide text-ink/50 dark:text-paper/50">
                     <span>
                       {article.published_at
                         ? new Date(article.published_at).toLocaleDateString()
@@ -119,7 +119,7 @@ const BlogSection = () => {
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 text-indigo-600 font-medium hover:underline"
+                    className="mt-5 text-sm font-semibold text-indigo-600 hover:underline dark:text-indigo-300"
                   >
                     Read More →
                   </a>
@@ -135,7 +135,7 @@ const BlogSection = () => {
             href={`https://dev.to/${DEVTO_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition"
+            className="inline-flex rounded-full bg-ink px-8 py-3 font-semibold text-paper transition hover:-translate-y-0.5 hover:bg-indigo-700 dark:bg-white dark:text-ink dark:hover:bg-indigo-200"
           >
             View All Articles
           </a>

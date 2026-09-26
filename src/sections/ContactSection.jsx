@@ -78,21 +78,22 @@ const ContactSection = () => {
     return (
         <motion.section
             id="contact"
-            className="py-16 md:py-24 bg-white dark:bg-black transition-colors duration-300 relative overflow-hidden"
+            className="scroll-mt-28 px-5 py-16 md:py-24"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={sectionVariants}
         >
-            <div className="container mx-auto px-4 text-center max-w-xl relative z-10">
+            <div className="surface-card relative z-10 mx-auto max-w-xl px-6 py-10 text-center md:px-10">
+                <motion.p className="section-kicker" variants={childVariants}>Contact</motion.p>
                 <motion.h2
-                    className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-100 mb-8 leading-tight"
+                    className="display-title mb-6"
                     variants={childVariants}
                 >
-                    Get In <span className="text-indigo-600 dark:text-indigo-400">Touch</span>
+                    Get In Touch
                 </motion.h2>
                 <motion.p
-                    className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-lg mx-auto"
+                    className="mx-auto mb-8 max-w-lg text-base leading-relaxed text-ink/70 dark:text-paper/70"
                     variants={childVariants}
                 >
                     I'm always open to discussing new projects, creative ideas, or opportunities to contribute to high-impact
@@ -104,19 +105,19 @@ const ContactSection = () => {
                     variants={childVariants}
                 >
                     <a href="https://www.linkedin.com/in/parshuram-singh/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"
-                        className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 dark:border-indigo-600 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 text-indigo-600 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-600 hover:text-white dark:border-white/15 dark:text-indigo-300"
                     >
-                        <FaLinkedin className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        <FaLinkedin className="h-5 w-5" />
                     </a>
                     <a href="https://github.com/parshuramsingh" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"
-                        className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 dark:border-indigo-600 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 text-indigo-600 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-600 hover:text-white dark:border-white/15 dark:text-indigo-300"
                     >
-                        <FaGithub className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        <FaGithub className="h-5 w-5" />
                     </a>
                     <a href="mailto:parshuram7714@gmail.com" aria-label="Email Me"
-                        className="w-12 h-12 rounded-full flex items-center justify-center border-2 border-indigo-400 text-indigo-600 dark:border-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-black transition-colors duration-300"
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 text-indigo-600 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-600 hover:text-white dark:border-white/15 dark:text-indigo-300"
                     >
-                        <FaEnvelope className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        <FaEnvelope className="h-5 w-5" />
                     </a>
                 </motion.div>
 
@@ -128,7 +129,7 @@ const ContactSection = () => {
                     variants={childVariants}
                 >
                     <div>
-                        <label htmlFor="name" className="block text-gray-800 dark:text-gray-200 text-sm font-bold uppercase mb-2">
+                        <label htmlFor="name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-ink/70 dark:text-paper/70">
                             Name
                         </label>
                         <input
@@ -136,14 +137,14 @@ const ContactSection = () => {
                             id="name"
                             name="name"
                             autoComplete="name"
-                            className="w-full pb-2 px-0 bg-transparent text-gray-900 dark:text-gray-100 border-b-2 border-gray-400 dark:border-gray-600 focus:outline-none focus:border-indigo-600 transition-all duration-200 text-base"
+                            className="w-full rounded-xl border border-black/10 bg-white/70 px-4 py-3 text-base text-ink outline-none transition focus:border-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-paper"
                             aria-label="Your Name"
                             required
                             disabled={isSubmitting} /* Disable input fields while submitting */
                         />
                     </div>
                     <div>
-                        <label htmlFor="email" className="block text-gray-800 dark:text-gray-200 text-sm font-bold uppercase mb-2">
+                        <label htmlFor="email" className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-ink/70 dark:text-paper/70">
                             Email Address
                         </label>
                         <input
@@ -151,14 +152,14 @@ const ContactSection = () => {
                             id="email"
                             name="email"
                             autoComplete="email"
-                            className="w-full pb-2 px-0 bg-transparent text-gray-900 dark:text-gray-100 border-b-2 border-gray-400 dark:border-gray-600 focus:outline-none focus:border-indigo-600 transition-all duration-200 text-base"
+                            className="w-full rounded-xl border border-black/10 bg-white/70 px-4 py-3 text-base text-ink outline-none transition focus:border-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-paper"
                             aria-label="Your Email"
                             required
                             disabled={isSubmitting} /* Disable input fields while submitting */
                         />
                     </div>
                     <div>
-                        <label htmlFor="message" className="block text-gray-800 dark:text-gray-200 text-sm font-bold uppercase mb-2">
+                        <label htmlFor="message" className="mb-2 block text-xs font-semibold uppercase tracking-[0.16em] text-ink/70 dark:text-paper/70">
                             Message
                         </label>
                         <textarea
@@ -166,7 +167,7 @@ const ContactSection = () => {
                             name="message"
                             rows="4"
                             autoComplete="off"
-                            className="w-full pb-2 px-0 bg-transparent text-gray-900 dark:text-gray-100 border-b-2 border-gray-400 dark:border-gray-600 focus:outline-none focus:border-indigo-600 transition-all duration-200 resize-y text-base"
+                            className="w-full resize-y rounded-xl border border-black/10 bg-white/70 px-4 py-3 text-base text-ink outline-none transition focus:border-indigo-500 dark:border-white/15 dark:bg-white/5 dark:text-paper"
                             aria-label="Your Message"
                             required
                             disabled={isSubmitting} /* Disable input fields while submitting */
@@ -192,7 +193,7 @@ const ContactSection = () => {
 
                     <motion.button
                         type="submit"
-                        className="w-full flex items-center justify-center px-6 py-3 bg-indigo-600 text-white font-bold text-lg rounded-none transition duration-300 transform hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        className="flex w-full items-center justify-center rounded-full bg-ink px-6 py-3 text-base font-semibold text-paper transition hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-60 dark:bg-white dark:text-ink dark:hover:bg-indigo-200"
                         variants={buttonVariants}
                         whileHover="hover"
                         whileTap="tap"

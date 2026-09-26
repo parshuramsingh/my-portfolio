@@ -1,11 +1,15 @@
 import React from 'react';
 
 const NavLink = ({ sectionId, activeSection, onClick, children, isMobile = false }) => {
-  const baseClasses = `font-medium transition duration-300 ease-in-out px-3 py-2 rounded-md`;
- 
-  const activeClasses = `text-indigo-600 border-b-2 border-indigo-600 dark:text-indigo-400 dark:border-indigo-400`;
-  const inactiveClasses = `text-gray-700 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400`;
-  const mobileClasses = `block text-left text-lg py-2 px-4 hover:bg-gray-50 dark:hover:bg-gray-700`;
+  const isActive = activeSection === sectionId;
+  const desktopClasses = isActive
+    ? 'bg-ink text-paper dark:bg-white dark:text-ink'
+    : 'text-ink/70 hover:bg-black/5 hover:text-ink dark:text-paper/70 dark:hover:bg-white/10 dark:hover:text-white';
+  const mobileClasses = `block w-full rounded-xl px-4 py-3 text-left text-base ${
+    isActive
+      ? 'bg-ink text-paper dark:bg-white dark:text-ink'
+      : 'text-ink hover:bg-black/5 dark:text-paper dark:hover:bg-white/10'
+  }`;
 
   return (
     <a
@@ -14,7 +18,7 @@ const NavLink = ({ sectionId, activeSection, onClick, children, isMobile = false
         e.preventDefault();
         onClick(sectionId);
       }}
-      className={`${baseClasses} ${activeSection === sectionId ? activeClasses : inactiveClasses} ${isMobile ? mobileClasses : ''}`}
+      className={isMobile ? mobileClasses : `rounded-full px-3.5 py-2 text-sm font-medium transition ${desktopClasses}`}
     >
       {children}
     </a>

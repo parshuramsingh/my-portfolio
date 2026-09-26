@@ -3,24 +3,24 @@ import { motion } from 'framer-motion';
 import adminImage from '../assets/admin.jpg';
 
 const containerVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: 'easeOut',
-      staggerChildren: 0.2,
+      staggerChildren: 0.12,
     },
   },
 };
 
 const childVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { duration: 0.5, ease: 'easeOut' },
   },
 };
 
@@ -35,92 +35,70 @@ const paragraphs = [
 const HomeSection = ({ scrollToSection }) => (
   <motion.section
     id="home"
-    className="relative py-20 md:py-28 bg-gradient-to-br from-indigo-100 to-purple-200 dark:from-gray-900 dark:to-black transition-colors duration-500 overflow-hidden"
+    className="scroll-mt-28 px-5 py-16 md:py-24"
     initial="hidden"
     animate="visible"
     variants={containerVariants}
   >
-    {/* Background Glow */}
-    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[120vw] h-[120vw] bg-indigo-400 opacity-10 blur-3xl rounded-full pointer-events-none z-0" />
-
-    <div className="container mx-auto px-4 text-center max-w-5xl relative z-10">
-
-      {/* Profile Image */}
+    <div className="surface-card mx-auto grid max-w-6xl items-center gap-10 overflow-hidden p-6 md:grid-cols-[240px_1fr] md:p-10 lg:grid-cols-[280px_1fr]">
       <motion.div
-        className="relative mx-auto w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-indigo-400 shadow-xl group hover:shadow-indigo-500 transition-shadow duration-300"
-        whileHover={{ scale: 1.1, rotate: 3 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      >
-        <img
-          src={adminImage}
-          alt="Parshuram Singh"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-      </motion.div>
-
-      {/* Name (H1 for SEO) */}
-      <motion.h1
-        className="text-4xl md:text-6xl font-extrabold text-gray-900 dark:text-white mt-6 mb-2 leading-tight drop-shadow-md"
+        className="mx-auto w-44 md:w-full"
         variants={childVariants}
       >
-        <span className="text-indigo-700 dark:text-indigo-400">
+        <div className="rounded-full bg-gradient-to-br from-indigo-500 via-indigo-300 to-amber-200 p-[3px] shadow-xl">
+          <img
+            src={adminImage}
+            alt="Parshuram Singh"
+            className="aspect-square w-full rounded-full object-cover"
+          />
+        </div>
+      </motion.div>
+
+      <div className="text-center md:text-left">
+        <motion.p className="section-kicker" variants={childVariants}>
+          Blockchain Developer
+        </motion.p>
+        <motion.h1
+          className="font-serif text-4xl leading-none text-ink dark:text-white md:text-6xl"
+          variants={childVariants}
+        >
           Parshuram Singh
-        </span>
-      </motion.h1>
-
-      {/* Authority Line (SEO Boost) */}
-      <motion.p
-        className="text-sm text-gray-500 dark:text-gray-400 mb-4"
-        variants={childVariants}
-      >
-        Blockchain Developer
-      </motion.p>
-
-      {/* Subtitle (Positioning) */}
-      <motion.p
-        className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8"
-        variants={childVariants}
-      >
-        <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
+        </motion.h1>
+        <motion.p
+          className="mt-4 text-lg font-medium text-indigo-700 dark:text-indigo-300"
+          variants={childVariants}
+        >
           Blockchain Developer · Backend Engineer · Hyperledger Fabric
-        </span>
-      </motion.p>
-
-      {/* Bio Paragraphs */}
-      <div className="flex flex-col gap-4 mt-8">
-        {paragraphs.map((text, i) => (
-          <motion.p
-            key={i}
-            className="text-md md:text-lg text-gray-800 dark:text-gray-200 backdrop-blur-sm bg-white/30 dark:bg-white/10 p-4 rounded-xl border border-white/30 dark:border-white/10 shadow-inner max-w-3xl mx-auto text-justify leading-relaxed"
-            variants={childVariants}
+        </motion.p>
+        <div className="mt-6 space-y-4">
+          {paragraphs.map((text) => (
+            <motion.p
+              key={text.slice(0, 24)}
+              className="text-base leading-relaxed text-ink/75 dark:text-paper/75"
+              variants={childVariants}
+            >
+              {text}
+            </motion.p>
+          ))}
+        </div>
+        <motion.div
+          className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start"
+          variants={childVariants}
+        >
+          <button
+            onClick={() => scrollToSection('projects')}
+            className="rounded-full bg-ink px-7 py-3 text-sm font-semibold text-paper transition hover:-translate-y-0.5 hover:bg-indigo-700 dark:bg-white dark:text-ink dark:hover:bg-indigo-200"
           >
-            {text}
-          </motion.p>
-        ))}
+            View My Work
+          </button>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="rounded-full border border-black/15 px-7 py-3 text-sm font-semibold text-ink transition hover:bg-black/5 dark:border-white/20 dark:text-paper dark:hover:bg-white/10"
+          >
+            Hire Me
+          </button>
+        </motion.div>
       </div>
-
-      {/* Buttons */}
-      <motion.div
-        className="mt-12 flex flex-wrap justify-center gap-6"
-        variants={childVariants}
-      >
-        <motion.button
-          onClick={() => scrollToSection('projects')}
-          className="px-8 py-3 text-lg font-bold rounded-full bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-xl hover:shadow-indigo-400/70 transition duration-300 hover:scale-105"
-          whileTap={{ scale: 0.95 }}
-        >
-          View My Work
-        </motion.button>
-
-        <motion.button
-          onClick={() => scrollToSection('contact')}
-          className="px-8 py-3 text-lg font-bold rounded-full border-2 border-indigo-600 text-indigo-800 dark:text-indigo-200 hover:bg-indigo-50 dark:hover:bg-indigo-900 shadow-md hover:shadow-indigo-300 transition duration-300 hover:scale-105"
-          whileTap={{ scale: 0.95 }}
-        >
-          Hire Me
-        </motion.button>
-      </motion.div>
     </div>
   </motion.section>
 );

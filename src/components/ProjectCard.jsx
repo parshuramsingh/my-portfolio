@@ -53,36 +53,40 @@ const ProjectCard = ({ title, initialDescription, techStack, githubLink, demoLin
   return (
     <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.03} transitionSpeed={500}>
       <motion.div
-        className="
-          bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-700
-          rounded-2xl p-6 shadow-xl border border-transparent group overflow-hidden
-          flex flex-col h-full transition-all duration-300 hover:shadow-2xl
-          hover:border-indigo-400 dark:hover:border-indigo-500
-        "
+        className="surface-card group flex h-full flex-col overflow-hidden p-4"
         whileHover={{ y: -5 }} 
       >
         <img
           src={imageSrc}
           alt={title}
-          className="w-full h-48 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300" // Image styling, scale on group hover
+          className="mb-4 h-48 w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x250/6366F1/FFFFFF?text=Project"; }}
         />
-        <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-3">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed flex-grow"> {/* flex-grow to push content down */}
+        <h3 className="mb-2 px-2 font-serif text-2xl leading-snug text-ink dark:text-paper">{title}</h3>
+        {Array.isArray(techStack) && techStack.length > 0 && (
+          <div className="mb-3 flex flex-wrap gap-1.5 px-2">
+            {techStack.slice(0, 4).map((tech) => (
+              <span key={tech} className="rounded-full bg-indigo-500/10 px-2.5 py-0.5 text-xs font-medium text-indigo-800 dark:text-indigo-200">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+        <p className="mb-4 flex-grow px-2 text-sm leading-relaxed text-ink/70 dark:text-paper/70">
           {displayedDescription}
         </p>
 
         {needsTruncation && (
           <button
             onClick={() => setShowFullDescription(!showFullDescription)}
-            className="text-indigo-600 dark:text-indigo-400 text-sm font-semibold hover:underline mt-2 text-left w-max focus:outline-none" 
+            className="mt-1 w-max px-2 text-left text-sm font-semibold text-indigo-600 hover:underline focus:outline-none dark:text-indigo-300" 
           >
             {showFullDescription ? 'Show less' : 'Read more'}
           </button>
         )}
 
         {/* Buttons at the very bottom, pushed by flex-grow on description */}
-        <div className="flex flex-wrap gap-3 mt-auto justify-center pt-4"> {/* mt-auto to push to bottom, pt-4 for padding */}
+        <div className="mt-auto flex flex-wrap justify-center gap-3 px-2 pt-4">
           {githubLink && githubLink !== '#' && ( // Only show if link is valid
             <motion.a
               href={githubLink}

@@ -58,118 +58,91 @@ const LandingPage = ({ onEnterPortfolio }) => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-gray-800 p-4 text-center overflow-hidden text-base dark:from-blue-950 dark:via-indigo-950 dark:to-purple-950 dark:text-white transition-colors duration-500">
-      
-      {/* Hidden SEO Link */}
-      <a href="/portfolio" style={{ display: "none" }}>
+    <div className="mesh relative flex min-h-screen items-center overflow-hidden px-5 py-16 text-ink dark:text-paper">
+      <a href="/portfolio" className="sr-only">
         Parshuram Singh Blockchain Developer Portfolio
       </a>
 
-      {/* Decorative Background Shapes */}
-      <div className="absolute inset-0 z-0 opacity-50 pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6366F1" />
-              <stop offset="100%" stopColor="#8B5CF6" />
-            </linearGradient>
-            <linearGradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#EC4899" />
-              <stop offset="100%" stopColor="#F43F5E" />
-            </linearGradient>
-            <filter id="blurFilter">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
-            </filter>
-          </defs>
-          <circle cx="25" cy="25" r="20" fill="url(#grad1)" filter="url(#blurFilter)" />
-          <rect x="60" y="10" width="25" height="25" fill="url(#grad2)" transform="rotate(25 72.5 22.5)" filter="url(#blurFilter)" />
-          <polygon points="50,70 70,90 30,90" fill="url(#grad1)" filter="url(#blurFilter)" />
-          <ellipse cx="80" cy="50" rx="15" ry="10" fill="url(#grad2)" filter="url(#blurFilter)" />
-        </svg>
-      </div>
-
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center px-4 sm:px-0">
-        <div className="w-48 h-48 md:w-64 md:h-64 mb-6">
-          <Lottie animationData={developerAnimation} loop autoplay />
-        </div>
-
-        {/* H1 */}
-        <h1 className="text-4xl md:text-6xl font-extrabold mb-4 leading-tight text-yellow-600 transition-opacity duration-1000 opacity-100 dark:text-yellow-300">
-          Parshuram Singh
-        </h1>
-
-        {/* H2 */}
-        <h2 className="text-xl md:text-2xl font-semibold mb-4 text-gray-700 dark:text-gray-200">
-          Blockchain Developer & Backend Engineer
-        </h2>
-
-        {/* Description */}
-        <p className="text-lg md:text-xl mb-6 w-full max-w-2xl text-gray-700 dark:text-gray-200">
-          Specializing in Hyperledger Fabric, Golang, and backend systems. Building scalable blockchain solutions like TradeChain.
-        </p>
-
-        {/* Quote Animation */}
-        <div className="relative z-10 mt-6 mb-8 max-w-xl mx-auto p-6 bg-gray-100/80 text-gray-700 rounded-lg shadow-xl backdrop-blur-sm dark:bg-white/10 dark:text-white transition-colors duration-500">
-          <p className={`text-lg italic mb-3 transition-opacity duration-1000 ${quoteFade}`}>
-            "{quotes[currentQuoteIndex].text}"
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="order-2 text-center lg:order-1 lg:text-left">
+          <p className="section-kicker">Blockchain · Backend · Distributed Systems</p>
+          <h1 className="font-serif text-5xl leading-[0.95] text-ink dark:text-white sm:text-6xl md:text-7xl">
+            Parshuram Singh
+          </h1>
+          <h2 className="mt-5 text-lg font-medium text-ink/80 dark:text-paper/80 md:text-xl">
+            Blockchain Developer & Backend Engineer
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ink/70 dark:text-paper/70 lg:mx-0 md:text-lg">
+            Specializing in Hyperledger Fabric, Golang, and backend systems. Building scalable blockchain solutions like TradeChain.
           </p>
-          <p className={`text-md font-semibold text-yellow-600 transition-opacity duration-1000 ${quoteFade} dark:text-yellow-300`}>
-            - {quotes[currentQuoteIndex].author}
-          </p>
-        </div>
 
-        {/* Skill Pills */}
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {['Hyperledger Fabric', 'Blockchain', 'Golang', 'Node.js', 'Distributed Systems'].map(skill => (
-            <span
-              key={skill}
-              className="px-4 py-2 bg-indigo-600 text-white rounded-full text-sm md:text-base font-semibold hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300 transform hover:scale-110 dark:bg-indigo-700 dark:hover:bg-yellow-500 dark:hover:text-gray-900"
+          <div className="mt-8 flex flex-wrap justify-center gap-2 lg:justify-start">
+            {['Hyperledger Fabric', 'Blockchain', 'Golang', 'Node.js', 'Distributed Systems'].map(skill => (
+              <span
+                key={skill}
+                className="rounded-full border border-black/10 bg-white/70 px-3 py-1 text-sm text-ink/80 dark:border-white/10 dark:bg-white/5 dark:text-paper/80"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+            <button
+              onClick={onEnterPortfolio}
+              className="rounded-full bg-ink px-8 py-3.5 text-base font-semibold text-paper shadow-lg shadow-indigo-900/10 transition hover:-translate-y-0.5 hover:bg-indigo-700 dark:bg-white dark:text-ink dark:hover:bg-indigo-200"
             >
-              {skill}
-            </span>
-          ))}
+              Enter Portfolio
+            </button>
+            <a
+              href={resumeLink}
+              onClick={handleDownloadResume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-black/15 px-8 py-3.5 text-base font-semibold text-ink transition hover:bg-white/70 dark:border-white/20 dark:text-paper dark:hover:bg-white/10"
+            >
+              Download Resume
+            </a>
+          </div>
+
+          <div className="mt-10 flex items-center justify-center gap-4 lg:justify-start">
+            <a
+              href="https://www.linkedin.com/in/parshuram-singh/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:text-indigo-600 dark:border-white/15 dark:hover:text-indigo-300"
+              aria-label="LinkedIn Profile"
+            >
+              <FaLinkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://github.com/parshuramsingh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 transition hover:-translate-y-0.5 hover:border-indigo-400 hover:text-indigo-600 dark:border-white/15 dark:hover:text-indigo-300"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub className="h-5 w-5" />
+            </a>
+          </div>
+
+          <blockquote className={`mx-auto mt-10 max-w-lg border-l-2 border-indigo-400/70 pl-4 text-left transition-opacity duration-1000 lg:mx-0 ${quoteFade}`}>
+            <p className="text-sm italic leading-relaxed text-ink/70 dark:text-paper/70">
+              “{quotes[currentQuoteIndex].text}”
+            </p>
+            <footer className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-indigo-600 dark:text-indigo-300">
+              {quotes[currentQuoteIndex].author}
+            </footer>
+          </blockquote>
         </div>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
-          <button
-            onClick={onEnterPortfolio}
-            className="px-10 py-4 bg-yellow-400 text-blue-900 font-bold text-lg rounded-full shadow-xl hover:bg-yellow-300 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-yellow-500 focus:ring-opacity-75 hover:shadow-yellow-500/50"
-          >
-            Enter Portfolio
-          </button>
-          <a
-            href={resumeLink}
-            onClick={handleDownloadResume}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-10 py-4 border-2 border-indigo-600 text-indigo-600 font-bold text-lg rounded-full shadow-xl hover:bg-indigo-50 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-offset-2 dark:border-white dark:text-white dark:hover:bg-white/10 dark:hover:text-white dark:focus:ring-white/75"
-          >
-            Download Resume
-          </a>
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex space-x-6 mt-10">
-          <a
-            href="https://www.linkedin.com/in/parshuram-singh/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 hover:text-indigo-600 transition-colors duration-300 transform hover:scale-110 dark:text-white dark:hover:text-yellow-300"
-            aria-label="LinkedIn Profile"
-          >
-            <FaLinkedin className="w-8 h-8" />
-          </a>
-          <a
-            href="https://github.com/parshuramsingh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-700 hover:text-indigo-600 transition-colors duration-300 transform hover:scale-110 dark:text-white dark:hover:text-yellow-300"
-            aria-label="GitHub Profile"
-          >
-            <FaGithub className="w-8 h-8" />
-          </a>
+        <div className="order-1 flex justify-center lg:order-2">
+          <div className="relative w-64 sm:w-80 md:w-96">
+            <div className="absolute inset-6 rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/20" />
+            <div className="surface-card relative p-4">
+              <Lottie animationData={developerAnimation} loop autoplay />
+            </div>
+          </div>
         </div>
       </div>
 
